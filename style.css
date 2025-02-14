@@ -1,0 +1,157 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #12879f, #8a0464);
+  color: #fff;
+  position: relative;
+}
+
+.container {
+  width: 80vh;
+  height: 18vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock {
+  width: 100%;
+  height: 100%;
+  background: hsla(256, 85%, 31%, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 2px solid black;
+  backdrop-filter: blur(5rem);
+}
+
+.container::before {
+  content: "";
+  width: 25vh;
+  height: 25vh;
+  background: #f41b75;
+  border-radius: 1rem;
+  position: absolute;
+  left: -50px;
+  top: -50px;
+  z-index: -1;
+}
+
+.container::after {
+  content: "";
+  width: 25vh;
+  height: 25vh;
+  background: #419aff;
+  border-radius: 50%;
+  position: absolute;
+  right: -30px;
+  bottom: -50px;
+  z-index: -1;
+}
+
+.clock span {
+  font-size: 6rem;
+  width: 4.5rem;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.clock span::after {
+  font-size: 16px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#hrs::after {
+  content: "HOURS";
+}
+
+#min::after {
+  content: "MIN";
+}
+
+#sec::after {
+  content: "SEC";
+}
+
+/* Media Queries for Responsive Design */
+
+/* For small screens (mobile devices) */
+@media only screen and (max-width: 480px) {
+  .clock {
+    width: 80vh; /* Adjust width */
+    height: 80vh; /* Adjust height */
+    font-size: 4rem; /* Decrease font size */
+  }
+  .container {
+    width: 70vh;
+    height: 70vh;
+  }
+  .container::before {
+    width: 20vh;
+    height: 20vh;
+  }
+  .container::after {
+    width: 20vh;
+    height: 20vh;
+  }
+}
+
+/* For medium-sized screens (tablets) */
+@media only screen and (max-width: 768px) {
+  .clock {
+    width: 60vh; /* Adjust width */
+    height: 60vh; /* Adjust height */
+    font-size: 5rem; /* Adjust font size */
+  }
+  .container {
+    width: 60vh;
+    height: 60vh;
+  }
+  .container::before {
+    width: 18vh;
+    height: 18vh;
+  }
+  .container::after {
+    width: 18vh;
+    height: 18vh;
+  }
+}
+
+/* For very small screens (small smartphones) */
+@media only screen and (max-width: 320px) {
+  .clock {
+    width: 100%; /* Make clock fit screen */
+    height: 50vh; /* Adjust height for small screens */
+    font-size: 3rem; /* Smaller font size */
+  }
+  .container {
+    width: 90%;
+    height: 50vh;
+  }
+  .container::before {
+    width: 15vh;
+    height: 15vh;
+  }
+  .container::after {
+    width: 15vh;
+    height: 15vh;
+  }
+}
